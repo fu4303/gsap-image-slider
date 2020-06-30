@@ -6,15 +6,15 @@ const isProd = process.env.NODE_ENV === "production"
 
 module.exports = {
   plugins: [
-    // {
-    //   resolve: "gatsby-source-sanity",
-    //   options: {
-    //     projectId: "bxkw0htn",
-    //     dataset: "production",
-    //     // token: process.env.SANITY_TOKEN,
-    //     watchMode: !isProd,
-    //     overlayDrafts: !isProd,
-    //   },
-    // },
+    {
+      resolve: "gatsby-source-sanity",
+      options: {
+        projectId: "bxkw0htn",
+        dataset: "production",
+        // token: process.env.SANITY_TOKEN,
+        watchMode: !isProd,
+        overlayDrafts: !isProd,
+      },
+    },
   ],
 }
