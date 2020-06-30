@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "gsap-image-slider",
+  "version": "1.0.14",
+  "scripts": {
+    "build-studio": "cd studio && yarn build",
+    "build-web": "cd web && yarn build)"
+  },
+  "devDependencies": {
+    "@sanity/cli": "^1.149.13"
+  }
+}
