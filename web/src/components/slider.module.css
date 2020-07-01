@@ -26,15 +26,8 @@
   height: 70px;
 }
 .control-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 50%;
   padding: 0;
-  border: none;
-  background-color: transparent;
-  font-family: inherit;
-  cursor: pointer;
 }
 .control-button > svg {
   fill: currentColor;
