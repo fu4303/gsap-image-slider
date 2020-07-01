@@ -1,5 +1,11 @@
 import React from "react"
+import Layout from "../components/Layout"
+import Slider from "../components/Slider"
 
 export default () => {
-  return <h1>Hello</h1>
+  return (
+    <Layout>
+      <Slider />
+    </Layout>
+  )
 }
