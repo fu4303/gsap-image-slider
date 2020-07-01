@@ -4,13 +4,14 @@ import Img from "gatsby-image"
 import { gsap, Draggable } from "gsap/all"
 import styles from "./slider.module.css"
 import Arrow from "./Arrow"
+import Dot from "./Dot"
 
 gsap.registerPlugin(Draggable)
 
 const Slider = () => {
   const [activeSlide, setActiveSlide] = useState(0)
   const [dimensions, setDimensions] = useState({
-    width: 590,
+    width: null,
   })
   let outerRef = useRef(null)
   let sliderRef = useRef(null)
@@ -34,11 +35,26 @@ const Slider = () => {
         width: outerRef.current.clientWidth,
       })
     }
-
     window.addEventListener("resize", handleResize)
     return (_) => {
       window.removeEventListener("resize", handleResize)
     }
+  })
+
+  Draggable.create(sliderRef.current, {
+    type: "x",
+    edgeResistance: 0.9,
+    bounds: outerRef.current,
+    onDragEnd: function () {
+      if (this.endX < this.startX) {
+        console.log("increase")
+        handleGoToNext()
+      }
+      if (this.endX > this.startX) {
+        handleGoToPrevious()
+      }
+    },
+    throwProps: true,
   })
 
   const handleGoToPrevious = () => {
@@ -101,6 +117,16 @@ const Slider = () => {
           >
             <Arrow />
           </button>
+        </div>
+        <div className={styles.dotsContainer}>
+          {Array.from(Array(numberOfSlides)).map((_x, i) => (
+            <Dot
+              key={i}
+              slide={i}
+              activeSlide={activeSlide}
+              setActiveSlide={setActiveSlide}
+            />
+          ))}
         </div>
       </div>
     </div>
