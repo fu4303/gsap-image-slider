@@ -36,16 +36,6 @@ const Slider = () => {
         }
       },
     })
-  })
-
-  useEffect(() => {
-    gsap.to(sliderRef.current, {
-      duration: 0.5,
-      x: -(dimensions.width * activeSlide),
-    })
-  }, [activeSlide, dimensions])
-
-  useEffect(() => {
     function handleResize() {
       setDimensions({
         width: outerRef.current.clientWidth,
@@ -56,6 +46,13 @@ const Slider = () => {
       window.removeEventListener("resize", handleResize)
     }
   })
+
+  useEffect(() => {
+    gsap.to(sliderRef.current, {
+      duration: 0.5,
+      x: -(dimensions.width * activeSlide),
+    })
+  }, [activeSlide, dimensions])
 
   const handleGoToPrevious = () => {
     setActiveSlide(activeSlide - 1)
