@@ -8,10 +8,18 @@ Sanity Studio is hosted [here](https://gsap-image-slider-studio.netlify.app/)
 
 ## To get up and running
 
-### Frontend
+1. Sanity Studio
 
-`cd web && yarn develop`
+Install dependencies: `cd studio && yarn`
 
-### Sanity Studio
+Start up Sanity Studio: `yarn start`
 
-`cd studio && yarn start`
+The CMS will be available at http://localhost:3333/
+
+2. Frontend
+
+Install dependencies: `cd web && yarn`
+
+Start up frontend: `yarn develop`
+
+The site will be available at http://localhost:8000/
