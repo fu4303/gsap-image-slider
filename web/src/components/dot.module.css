@@ -1,0 +1,43 @@
+.dot {
+  color: #999999;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  margin-right: -5px;
+}
+.dot.space {
+  margin-right: 20px;
+}
+.dot.white {
+  color: #ffffff;
+}
+.dot > svg {
+  fill: currentColor;
+}
+.dot:focus {
+  outline: none;
+}
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.sr-only:active,
+.sr-only:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: normal;
+  width: auto;
+}
