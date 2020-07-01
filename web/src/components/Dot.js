@@ -19,7 +19,7 @@ const Dot = ({ slide, activeSlide, setActiveSlide }) => {
       >
         <circle cx="2.5" cy="2.5" r="2.5" />
       </svg>
-      <span hidden class="srOnly">
+      <span hidden className="srOnly">
         {`Go to slide ${slide}`}
       </span>
     </button>
