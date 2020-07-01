@@ -49,3 +49,9 @@
   transform: rotate(180deg);
   border-left: 1px solid #e8e8e8;
 }
+.dots-container {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  display: flex;
+}
