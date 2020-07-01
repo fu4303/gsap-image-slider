@@ -10,8 +10,8 @@ Sanity Studio is hosted [here](https://gsap-image-slider-studio.netlify.app/)
 
 ### Frontend
 
-`yarn develop`
+`cd web && yarn develop`
 
 ### Sanity Studio
 
-`yarn start`
+`cd studio && yarn start`
