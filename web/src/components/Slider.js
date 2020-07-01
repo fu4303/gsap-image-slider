@@ -113,7 +113,7 @@ const Slider = () => {
           <button
             className={styles.controlButton}
             onClick={handleGoToNext}
-            disabled={activeSlide === 3}
+            disabled={activeSlide === numberOfSlides - 1}
           >
             <Arrow />
           </button>
