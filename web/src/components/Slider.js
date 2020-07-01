@@ -1,33 +1,49 @@
 import React, { useEffect, useState, useRef } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { gsap, Draggable } from "gsap/all"
-import styles from "./slider.module.css"
+import { gsap } from "gsap"
+import { Draggable } from "gsap/Draggable"
 import Arrow from "./Arrow"
 import Dot from "./Dot"
-
-gsap.registerPlugin(Draggable)
+import styles from "./slider.module.css"
 
 const Slider = () => {
+  const outerRef = useRef(null)
+  const sliderRef = useRef(null)
   const [activeSlide, setActiveSlide] = useState(0)
   const [dimensions, setDimensions] = useState({
     width: null,
   })
-  let outerRef = useRef(null)
-  let sliderRef = useRef(null)
-
-  useEffect(() => {
-    gsap.to(sliderRef.current, {
-      duration: 0.7,
-      x: -(dimensions.width * activeSlide),
-    })
-  }, [activeSlide, dimensions])
 
   useEffect(() => {
     setDimensions({
       width: outerRef.current.clientWidth,
     })
   }, [])
+
+  useEffect(() => {
+    gsap.registerPlugin(Draggable)
+    Draggable.create(sliderRef.current, {
+      type: "x",
+      edgeResistance: 0.9,
+      bounds: outerRef.current,
+      onDragEnd: function () {
+        if (this.endX < this.startX) {
+          handleGoToNext()
+        }
+        if (this.endX > this.startX) {
+          handleGoToPrevious()
+        }
+      },
+    })
+  })
+
+  useEffect(() => {
+    gsap.to(sliderRef.current, {
+      duration: 0.5,
+      x: -(dimensions.width * activeSlide),
+    })
+  }, [activeSlide, dimensions])
 
   useEffect(() => {
     function handleResize() {
@@ -39,22 +55,6 @@ const Slider = () => {
     return (_) => {
       window.removeEventListener("resize", handleResize)
     }
-  })
-
-  Draggable.create(sliderRef.current, {
-    type: "x",
-    edgeResistance: 0.9,
-    bounds: outerRef.current,
-    onDragEnd: function () {
-      if (this.endX < this.startX) {
-        console.log("increase")
-        handleGoToNext()
-      }
-      if (this.endX > this.startX) {
-        handleGoToPrevious()
-      }
-    },
-    throwProps: true,
   })
 
   const handleGoToPrevious = () => {
