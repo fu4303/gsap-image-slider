@@ -99,22 +99,20 @@ const Slider = () => {
             />
           ))}
         </div>
-        <div className={styles.controlContainer}>
-          <button
-            className={`${styles.controlButton} ${styles.controlButtonLeft}`}
-            onClick={handleGoToPrevious}
-            disabled={activeSlide === 0}
-          >
-            <Arrow />
-          </button>
-          <button
-            className={styles.controlButton}
-            onClick={handleGoToNext}
-            disabled={activeSlide === numberOfSlides - 1}
-          >
-            <Arrow />
-          </button>
-        </div>
+        <button
+          className={`${styles.controlButton} ${styles.controlButtonLeft}`}
+          onClick={handleGoToPrevious}
+          disabled={activeSlide === 0}
+        >
+          <Arrow />
+        </button>
+        <button
+          className={`${styles.controlButton} ${styles.controlButtonRight}`}
+          onClick={handleGoToNext}
+          disabled={activeSlide === numberOfSlides - 1}
+        >
+          <Arrow />
+        </button>
         <div className={styles.dotsContainer}>
           {Array.from(Array(numberOfSlides)).map((_x, i) => (
             <Dot
