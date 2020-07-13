@@ -23,17 +23,14 @@
   transform: translateY(-50%);
   color: #ffffff;
 }
-.control-button > svg {
-  fill: currentColor;
-}
 .control-button:focus {
   outline: none;
 }
-.control-button:active {
+.control-button:active,
+.control-button:disabled {
   color: #999999;
 }
 .control-button-left {
-  transform: rotate(180deg);
   left: 20px;
 }
 .control-button-right {

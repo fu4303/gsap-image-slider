@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { gsap } from "gsap"
 import { Draggable } from "gsap/Draggable"
-import Arrow from "./Arrow"
 import Dot from "./Dot"
 import styles from "./slider.module.css"
 
@@ -104,14 +103,28 @@ const Slider = () => {
           onClick={handleGoToPrevious}
           disabled={activeSlide === 0}
         >
-          <Arrow />
+          <svg
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            width="100%"
+            height="100%"
+          >
+            <path d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" />
+          </svg>
         </button>
         <button
           className={`${styles.controlButton} ${styles.controlButtonRight}`}
           onClick={handleGoToNext}
           disabled={activeSlide === numberOfSlides - 1}
         >
-          <Arrow />
+          <svg
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            width="100%"
+            height="100%"
+          >
+            <path d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" />
+          </svg>
         </button>
         <div className={styles.dotsContainer}>
           {Array.from(Array(numberOfSlides)).map((_x, i) => (
