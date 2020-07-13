@@ -1,16 +1,6 @@
 .dot {
-  color: #999999;
-  margin-right: -5px;
-  padding: 6px;
-}
-.dot.space {
-  margin-right: 20px;
-}
-.dot.white {
   color: #ffffff;
-}
-.dot > svg {
-  fill: currentColor;
+  padding: 8px;
 }
 .dot:focus {
   outline: none;
